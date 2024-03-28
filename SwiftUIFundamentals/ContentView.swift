@@ -16,13 +16,16 @@ struct ContentView: View {
     
     var body: some View {
         List(hikes) { hike in
-            HStack {
+            HStack(alignment: .top) {
                 Image(hike.photo)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))  //the order of where you chose the view modifiers matters. Showing this before the actual frame
-                    .frame(width: 100, height: 100)
-                Text(hike.name)
+                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))  //the order of where you chose the view modifiers matters. Showing this before the actual frame
+                    .frame(width: 100)
+                VStack(alignment: .leading ){
+                    Text(hike.name)
+                    Text("\(hike.miles.formatted()) miles") //string interpolation
+                }
             }
         }
         .padding()
