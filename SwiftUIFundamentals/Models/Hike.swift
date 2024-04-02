@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Hike: Identifiable {   //it needs to make sure the elements have an uniqueness to it - giving an identity to UI elements
+struct Hike: Identifiable, Hashable {   //it needs to make sure the elements have an uniqueness to it - giving an identity to UI elements
     let id = UUID()
     let name: String
     let photo: String
